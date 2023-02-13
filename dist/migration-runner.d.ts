@@ -1,1 +1,0 @@
-import 'typeorm/cli';
