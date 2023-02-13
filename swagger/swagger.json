@@ -1,0 +1,676 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/auth/register": {
+      "post": {
+        "operationId": "AuthController_register",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterUserDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/auth/register/company": {
+      "post": {
+        "operationId": "AuthController_registerAsCompany",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterCompanyDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "operationId": "AuthController_login",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginUserDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/companies": {
+      "put": {
+        "operationId": "CompanyController_update",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCompanyDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "get": {
+        "operationId": "CompanyController_getAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/users/profile": {
+      "get": {
+        "operationId": "UserController_getProfile",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "put": {
+        "operationId": "UserController_editProfile",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EditUserDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/users/company/profile": {
+      "put": {
+        "operationId": "UserController_editCompanyProfile",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EditCompanyProfileDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/users/companies/{id}/follow": {
+      "post": {
+        "operationId": "UserController_followCompany",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/users/following": {
+      "get": {
+        "operationId": "UserController_getFollowingCompanies",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/events": {
+      "post": {
+        "operationId": "EventsController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateEventDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        }
+      },
+      "get": {
+        "operationId": "EventsController_searchEvents",
+        "parameters": [
+          {
+            "name": "keyword",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "location",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "from",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          {
+            "name": "to",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "format": "date-time",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/events/{id}": {
+      "put": {
+        "operationId": "EventsController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateEventDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "delete": {
+        "operationId": "EventsController_delete",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "get": {
+        "operationId": "EventsController_get",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/events/company": {
+      "get": {
+        "operationId": "EventsController_getMyEvents",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/events/upcoming": {
+      "get": {
+        "operationId": "EventsController_myUpcomingEvent",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/events/past": {
+      "get": {
+        "operationId": "EventsController_myPastEvent",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/events/companies/{id}": {
+      "get": {
+        "operationId": "EventsController_getCompanyEvents",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/events/{id}/rsvp": {
+      "post": {
+        "operationId": "EventsController_rsvpEvent",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        }
+      },
+      "get": {
+        "operationId": "EventsController_getRsvpOfEvents",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/events/{id}/users/{userId}/attend": {
+      "post": {
+        "operationId": "EventsController_attendEvent",
+        "parameters": [
+          {
+            "name": "userId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/events/{id}/attendance": {
+      "get": {
+        "operationId": "EventsController_getAttendanceOfEvents",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/events/{id}/feedback": {
+      "post": {
+        "operationId": "FeedbackController_create",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddFeedbackDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        }
+      },
+      "get": {
+        "operationId": "FeedbackController_list",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    }
+  },
+  "info": {
+    "title": "Event Management system",
+    "description": "Event Management system APIS",
+    "version": "0.0.2",
+    "contact": {}
+  },
+  "tags": [],
+  "servers": [],
+  "components": {
+    "securitySchemes": {
+      "bearer": {
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "type": "http"
+      }
+    },
+    "schemas": {
+      "RegisterUserDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "password",
+          "email"
+        ]
+      },
+      "RegisterCompanyDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "companyTitle": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "password",
+          "email",
+          "companyTitle"
+        ]
+      },
+      "LoginUserDto": {
+        "type": "object",
+        "properties": {
+          "password": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "password",
+          "email"
+        ]
+      },
+      "UpdateCompanyDto": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "title"
+        ]
+      },
+      "EditUserDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "email"
+        ]
+      },
+      "EditCompanyProfileDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "email",
+          "title"
+        ]
+      },
+      "CreateEventDto": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "title",
+          "location",
+          "description",
+          "date"
+        ]
+      },
+      "UpdateEventDto": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "title",
+          "location",
+          "description",
+          "date"
+        ]
+      },
+      "AddFeedbackDto": {
+        "type": "object",
+        "properties": {
+          "feedback": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "feedback"
+        ]
+      }
+    }
+  }
+}
