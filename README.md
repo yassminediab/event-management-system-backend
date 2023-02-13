@@ -65,3 +65,5 @@ yarn test:e2e
 
 ## Swagger
 You can run swagger on http://localhost:3000/docs to find all the endpoints and test it
+
+![alt text](https://github.com/yassminediab/event-management-system-backend/blob/main/assets/Screen%20Shot%202023-02-14%20at%201.16.43%20AM.png?raw=true)
